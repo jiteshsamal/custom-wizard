@@ -1,0 +1,59 @@
+.board{
+    width: 60%;
+    margin: 60px auto;
+    height: 400px;
+   
+}
+.tab-content .tab-pane{
+   position: relative;
+padding-top: 50px;
+}
+
+.success-text{
+    color: green;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.display-inline-block{
+    display: inline-block;
+}
+
+.width-90{
+width: 90%;
+}
+
+.width-25{
+    width: 25%;
+}
+
+.width-27{
+    width: 27%;
+}
+
+.width-5{
+    width: 5%;
+}
+.width-6{
+    width: 6%;
+}
+.width-7{
+    width: 7%;
+}
+.width-50{
+    width:50%
+}
+
+.margin-left-1{
+    margin-left:1%;
+}
+
+.form-group-padding{
+    padding:15px;
+}
+
+
+.cost{
+    text-align:center;color:#009688;font-weight:bold;font-size:20px;margin-top: 12em;
+}

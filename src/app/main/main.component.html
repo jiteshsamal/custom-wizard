@@ -1,0 +1,84 @@
+<section>
+  <div class="container">
+    <div class="board" *ngIf="!hidewizard; else showData">
+      <app-main-wizard [wizardContext]="ShippingInfo" (wizardCompleted)="wizardCompleted($event)" [headerLabel]="'Shipping Label Maker'">
+        <app-wizard-step [wizardStepTitle]="'Enter Senders Address'">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="NAME" [(ngModel)]="ShippingInfo.from.name">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="STREET" [(ngModel)]="ShippingInfo.from.street">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <input type="text" placeholder="CITY" [(ngModel)]="ShippingInfo.from.city">
+            </div>
+            <div class="input-field col s4">
+              <input type="text" placeholder="STATE" [(ngModel)]="ShippingInfo.from.state">
+            </div>
+            <div class="input-field col s4">
+              <input type="text" placeholder="ZIP" [(ngModel)]="ShippingInfo.from.zip">
+            </div>
+          </div>
+        </app-wizard-step>
+        <app-wizard-step [wizardStepTitle]="'Enter Receivers Address'">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="NAME" [(ngModel)]="ShippingInfo.to.name">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="STREET" [(ngModel)]="ShippingInfo.to.street">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <input type="text" placeholder="CITY" [(ngModel)]="ShippingInfo.to.city">
+            </div>
+            <div class="input-field col s4">
+              <input type="text" [(ngModel)]="ShippingInfo.to.state" placeholder="STATE">
+            </div>
+
+            <div class="input-field col s4">
+              <input type="text" [(ngModel)]="ShippingInfo.to.zip" placeholder="ZIP">
+            </div>
+
+          </div>
+
+
+        </app-wizard-step>
+        <app-wizard-step [wizardStepTitle]="'Enter Weight'">
+          <div class="row">
+            <div class="input-field col s8">
+              <input placeholder="Weight" type="number" [(ngModel)]="ShippingInfo.weight">
+            </div>
+          </div>
+
+        </app-wizard-step>
+        <app-wizard-step [wizardStepTitle]="'Enter ShippingOptions'">
+          <div class="row">
+            <div class="input-field col s12">
+              <p *ngFor="let shippingOption of shippingOptions">
+                <label>
+                  <input type="radio" name="shippingOption" [(ngModel)]="ShippingInfo.shippingOption" [value]="shippingOption.id" />
+                  <span>{{shippingOption.value}}</span>
+                </label>
+              </p>
+            </div>
+          </div>
+        </app-wizard-step>
+      </app-main-wizard>
+    </div>
+    <!--Cost Template-->
+    <ng-template #showData>
+      <div class="card-panel cost">
+        Total shipping cost is ${{shippingCost}}
+      </div>
+    </ng-template>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<ng-container *ngIf="active">
+    <div style="padding: 20px;font-weight: bold">
+        {{wizardStepTitle}}
+    </div>
+    <ng-content></ng-content>
+    <div class="button-group-container" *ngIf="!isItDone()">
+        <a class="waves-effect waves-light btn" (click)="onAction('prev')" style="margin-right: 15px">
+            <i class="material-icons left">navigate_before</i>Previous</a>
+        <a class="waves-effect waves-light btn" (click)="onAction('next')">Next
+            <i class="material-icons right">navigate_next</i>
+        </a>
+    </div>
+</ng-container>
